@@ -15,8 +15,6 @@ final class Repository
     public function __construct(private readonly EntityManagerInterface $entityManager)
     {
         $this->repository = $this->entityManager->getRepository(Bar::class);
-
-        dump(spl_object_id($this->repository));
     }
 
     public function getSomething(): string
@@ -31,7 +29,7 @@ final class Repository
         /** @var EntityManagerInterface $entityManager */
         $entityManager = $reflectionMethod->invoke($this->repository);
 
-        dd(
+        dump(
             [
                 $this->entityManager->getUnitOfWork() === $entityManager->getUnitOfWork(),
                 $this->entityManager === $entityManager,

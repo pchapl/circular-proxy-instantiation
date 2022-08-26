@@ -10,6 +10,11 @@ final class ContextualService
     {
     }
 
+    public function checker(): void
+    {
+        $this->repository->checker();
+    }
+
     public function getSomethingFromSomewhere(): string
     {
         return $this->repository->getSomething();

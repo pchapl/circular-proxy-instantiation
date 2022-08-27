@@ -29,11 +29,6 @@ final class Repository
         /** @var EntityManagerInterface $entityManager */
         $entityManager = $reflectionMethod->invoke($this->repository);
 
-        dump(
-            [
-                $this->entityManager->getUnitOfWork() === $entityManager->getUnitOfWork(),
-                $this->entityManager === $entityManager,
-            ],
-        );
+        dump($this->entityManager->getUnitOfWork() === $entityManager->getUnitOfWork());
     }
 }
